@@ -1,0 +1,35 @@
+.App {
+  background: whitesmoke;
+}
+
+.App-container {
+  align-items: stetch;
+  background: white;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 60rem;
+}
+
+.App-padding {
+  padding: 1rem;
+}
+
+.App-header {
+  flex: 0;
+}
+
+.App-main {
+  flex: 1;
+}
+
+.App-footer {
+  flex: 0;
+}
+
+.App-link {
+  color: #61dafb;
+}
