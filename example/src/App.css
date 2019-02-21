@@ -5,7 +5,6 @@
 .App-container {
   align-items: stetch;
   background: white;
-  color: white;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -19,6 +18,7 @@
 }
 
 .App-header {
+  color: white;
   flex: 0;
 }
 
@@ -27,6 +27,7 @@
 }
 
 .App-footer {
+  color: white;
   flex: 0;
 }
 

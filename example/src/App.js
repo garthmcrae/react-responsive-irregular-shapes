@@ -8,37 +8,56 @@ class App extends Component {
       <div className="App">
         <div className="App-container">
           <header className="App-header">
+            <Shape
+              color="crimson"
+              left={{ angle: false }}
+              right={{ angle: false }}
+              top={{ angle: false }}
+            >
+              <h1>Irregular shapes</h1>
+            </Shape>
+          </header>
+          <main className="App-main">
             <div className="App-padding">
               <Shape
-                color="midnightblue"
+                padding={'.5rem'}
               >
                 <div className="App-padding">
-                  <h1>Garth's irregular shapes</h1>
+                  <p>Props.</p>
+                  <p>
+                    <code>
+                      <pre>
+                        const props = &#123;,<br/>
+                        sides: false false true false<br/>
+                        bottom:     true  | left  | right,<br/>
+                        left:       true  | top   | bottom,<br/>
+                        right:      true  | top   | bottom,<br/>
+                        top:        true  | left  | right,<br/>
+                        background: color,<br/>
+                        children:   function,<br/>
+                        color:      color,<br/>
+                        fill:       color | linear-gradient,<br/>
+                        inset:      size,<br/>
+                        padding:    size,<br/>
+                        &#125;<br/>
+                        &lt;Shape &#123;...&#123;...props&#125;&#125;&gt;
+                      </pre>
+                    </code>
+                  </p>
+                  <p>Can't decide if I like this font or not.</p>
                 </div>
               </Shape>
             </div>
-          </header>
-          <main className="App-main">
+          </main>
+          <footer className="App-footer">
             <Shape
-              color="midnightblue"
+              bottom={{ angle: false }}
+              color="crimson"
               left={{ angle: false }}
               right={{ angle: false }}
             >
-              <div className="App-padding">
-                <Shape
-                  background="midnightblue"
-                  color="steelblue"
-                  padding={'.5rem'}
-                >
-                  <div className="App-padding">
-                    <p>Example children.</p>
-                  </div>
-                </Shape>
-              </div>
+                <p>License</p>
             </Shape>
-          </main>
-          <footer className="App-footer">
-            License
           </footer>
         </div>
       </div>
