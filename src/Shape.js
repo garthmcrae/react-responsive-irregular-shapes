@@ -1,91 +1,100 @@
 import React from 'react';
 
-const horizontal = () => Math.round(Math.random()) === 0 ? 'left' : 'right'
-const vertical = () => Math.round(Math.random()) === 0 ? 'up' : 'down'
-
 const attributes = {
   preserveAspectRatio: 'none',
-  viewBox: '0 0 100 100',
+  viewBox: '0 0 16 16',
 }
 
-const styles = {
-  position: 'absolute',
-}
-
-const Bottom = ({ background, padding, bottom }) => {
-  const { angle = true, direction = horizontal() } = bottom;
-  return angle === false ? null : (
+const T = ({ fill, paddingTop, insetTop }) => {
+  return insetTop === '' ? null : (
     <svg
-      height={ padding }
-      style={{ left: 0, bottom: 0, ...styles }}
+      height={ paddingTop }
+      style={{ left: 0, top: 0, position: 'absolute' }}
       width="100%"
       {...attributes}
     >
-      <path d={`M${direction === 'left' ? 0 : 100},0 L100,100 L0,100z`} fill={ background }></path>
+      <path d={`M0,0 L16,0 L${ insetTop === 'left' ? 0 : 16},16z`} fill={ fill }></path>
     </svg>
   )
 };
 
-const Left = ({ background, padding, left }) => {
-  const { angle = true, direction = vertical() } = left;
-  return angle === false ? null : (
+const R = ({ fill, paddingRight, insetRight }) => {
+  return insetRight === '' ? null : (
     <svg
       height="100%"
-      style={{ left: 0, top: 0, ...styles }}
-      width={ padding }
+      style={{ right: 0, top: 0, position: 'absolute' }}
+      width={ paddingRight }
       {...attributes}
     >
-      <path d={`M0,0 L100,${direction === 'up' ? 0 : 100} L0,100z`} fill={ background }></path>
+      <path d={`M0,${ insetRight === 'top' ? 0 : 16} L16,0 L16,16z`} fill={ fill }></path>
     </svg>
   )
 };
 
-const Right = ({ background, padding, right }) => {
-  const { angle = true, direction = vertical() } = right;
-  return angle === false ? null : (
+const B = ({ fill, paddingBottom, insetBottom }) => {
+  return insetBottom === '' ? null : (
     <svg
-      height="100%"
-      style={{ right: 0, top: 0, ...styles }}
-      width={ padding }
-      {...attributes}
-    >
-      <path d={`M100,0 L100,100 L0,${direction === 'up' ? 0 : 100}z`} fill={ background }></path>
-    </svg>
-  )
-};
-
-const Top = ({ background, padding, top }) => {
-  const { angle = true, direction = horizontal() } = top;
-  return angle === false ? null : (
-    <svg
-      height={ padding }
-      style={{ left: 0, top: 0, ...styles }}
+      height={ paddingBottom }
+      style={{ bottom: 0, left: 0, position: 'absolute' }}
       width="100%"
       {...attributes}
     >
-      <path d={`M0,0 L100,0 L${direction === 'left' ? 0 : 100},100z`} fill={ background }></path>
+      <path d={`M${ insetBottom === 'left' ? 0 : 16},0 L16,16 L0,16z`} fill={ fill }></path>
     </svg>
   )
 };
 
-export default ({
-  background = 'white',
-  children,
-  color = 'whitesmoke',
-  padding = '1rem',
-  sides = {},
-  bottom = {},
-  left = {},
-  right = {},
-  top = {},
-}) => {
+const L = ({ fill, paddingLeft, insetLeft }) => {
+  return insetLeft === '' ? null : (
+    <svg
+      height="100%"
+      style={{ left: 0, top: 0, position: 'absolute' }}
+      width={ paddingLeft }
+      {...attributes}
+    >
+      <path d={`M0,0 L16,${ insetLeft === 'top' ? 0 : 16} L0,16z`} fill={ fill }></path>
+    </svg>
+  )
+};
+
+function x(s = '') {
+  const [a, b = a, c = a, d = b] = s.split(' ');
+  return [a, b, c, d]
+}
+
+export default (props) => {
+  const {
+    background = `whitesmoke`,
+    children,
+    className = `Shape`,
+    color = `darkslategray`,
+    display = `block`,
+    fill = `white`,
+    inset = `1rem`,
+    padding = `1rem`,
+    position = `relative`,
+  } = props
+  const [it, ir, ib, il] = x(props.inset)
+  const {
+    insetTop = it,
+    insetRight = il,
+    insetBottom = ib,
+    insetLeft = il,
+  } = props
+  const [pt, pr, pb, pl] = x(props.padding)
+  const {
+    paddingTop = pt,
+    paddingRight = pr,
+    paddingBottom = pb,
+    paddingLeft = pl,
+  } = props
   return (
-    <div style={{ background: color, padding, position: 'relative' }}>
-      <Top {...{ background, padding, top }} />
-      <Bottom {...{ background, padding, bottom }} />
-      <Left {...{ background, padding, left }} />
-      <Right {...{ background, padding, right }} />
-      <div>{ children }</div>
-    </div>
+    <span style={{ background, color, display, paddingBottom, paddingLeft, paddingRight, paddingTop, position }}>
+      <T {...{ fill, insetTop, paddingTop}} />
+      <R {...{ fill, insetRight, paddingRight}} />
+      <B {...{ fill, insetBottom, paddingBottom}} />
+      <L {...{ fill, insetLeft, paddingLeft}} />
+      <span style={{ display }}>{ children }</span>
+    </span>
   )
 }
