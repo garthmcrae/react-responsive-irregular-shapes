@@ -1,32 +1,51 @@
 .App {
-  background: whitesmoke;
-}
-
-.App-container {
   align-items: stetch;
   background: white;
-  color: white;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   justify-content: center;
   margin: 0 auto;
-  max-width: 60rem;
 }
 
-.App-padding {
+.container {
+  margin: 0 auto;
+  max-width: 60rem;
+  padding: 0 1rem;
+}
+
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cell {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
   padding: 1rem;
 }
 
-.App-header {
+.margin {
+  margin: 1rem;
+}
+
+.padding {
+  padding: 1rem;
+}
+
+.header {
+  color: white;
   flex: 0;
 }
 
-.App-main {
+.main {
   flex: 1;
 }
 
-.App-footer {
+.footer {
+  color: white;
   flex: 0;
 }
 
