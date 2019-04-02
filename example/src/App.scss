@@ -1,11 +1,5 @@
 .App {
-  align-items: stetch;
   background: white;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  justify-content: center;
-  margin: 0 auto;
 }
 
 .container {
@@ -37,18 +31,19 @@
 
 .header {
   color: white;
-  flex: 0;
 }
 
 .main {
-  flex: 1;
 }
 
 .footer {
   color: white;
-  flex: 0;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.Shape {
+  transform: translate3d(0,0,0);
 }

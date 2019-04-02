@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "dist/react-responsive-irregular-shapes.cjs.js",
   "module": "dist/react-responsive-irregular-shapes.esm.js",
-  "dependencies": {},
+  "dependencies": {
+    "node-sass": "^4.11.0"
+  },
   "devDependencies": {
     "@babel/core": "7.2.2",
     "@babel/preset-env": "7.2.3",
